@@ -79,7 +79,6 @@ body{
 
 .section .box-wrapper .box .gift-box .frame-box{
 	width:90%;
-	background:green;
 	height:200px;
 	margin: 0 auto;
 	visibility: hidden;
@@ -90,6 +89,20 @@ body{
 	animation: zoomIn 1s forwards;;
 }
 
+.section .box-wrapper .box .gift-box .frame-box .bookWrapper{
+	background: black;
+	position: relative;
+	box-shadow: 0px 14px 19px 12px #423f3f;
+	/*transform:  rotate(20deg);*/
+}
+.section .box-wrapper .box .gift-box .frame-box .bookWrapper .bookFront{
+	background: gray;
+	width: 100%;
+	margin: 0 auto;
+}
+.section .box-wrapper .box .gift-box .frame-box .bookWrapper .bookFront .pageBg{
+	/*transform:  translate(-50%, -50%) matrix(1, 0, 0, 1, 0, 0);*/
+}
 /* -------end gift box css---------- */
 
 .section .box-wrapper .box::before{
@@ -152,35 +165,46 @@ body{
 @keyframes zoomIn {
     0% {
         transform: scale(0,0);
+        transform:  rotate(0deg);
     }
     10% {
         transform: scale(0.1,0.1);
+        transform:  rotate(-2deg);
     }
     20%{
         transform: scale(0.2,0.2);
+        transform:  rotate(-4deg);
     }
     30% {
         transform: scale(0.3,0.3);
+        transform:  rotate(-6deg);
     }
     40% {
         transform: scale(0.4,0.4);
+        transform:  rotate(-8deg);
     }
     50% {
         transform: scale(0.5,0.5);
+        transform:  rotate(-10deg);
     }
     60% {
         transform: scale(0.6,0.6);
+        transform:  rotate(-12deg);
     }
     70% {
         transform: scale(0.7,0.7);
+    	transform:  rotate(-14deg);
     }
     80% {
         transform: scale(0.8,0.8);
+        transform:  rotate(-16deg);
     }
     90% {
         transform: scale(0.9,0.9);
+        transform:  rotate(-18deg);
     }
     100% {
         transform: scale(1,1);
+        transform:  rotate(-20deg);
     }
 }
