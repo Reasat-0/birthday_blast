@@ -3,7 +3,7 @@ var pageLocation=[],
     $Zz=0;
 
 TweenLite.set(".centerClass", {xPercent:-50, yPercent:-50});
-TweenLite.set(".pageWrapper", {left: "327px", perspective:1000});
+TweenLite.set(".pageWrapper", {left: "293px", perspective:1000});
 TweenLite.set(".page", {transformStyle:"preserve-3d"});
 TweenLite.set(".back", {rotationY:-180});
 TweenLite.set([".back", ".front"],{backfaceVisibility:"hidden"});
