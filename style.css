@@ -6,6 +6,7 @@
 body{
 	font-family: 'Parisienne', cursive;
 	/*font-family: 'Public Sans', sans-serif;*/
+	color: #d90000;
 }
 
 .container{
@@ -15,13 +16,40 @@ body{
 
 .section{
 	min-height: 100vh;
-
 	display: flex;
 	justify-content: center;
 	align-items:  center;
 	background:  #f1f1f1;
+	background:  #000000;
+	flex-direction: column;
+}
+.section > h1{
+    font-weight: 600;
+    font-size: 92px;
+    margin-top: 80px;
+    animation: textFadIn 5s linear ;
+}
+.section > h3{
+	font-size:  40px;
+	text-align: center;
+	margin-top: 30px;
+    margin-bottom: 30px;
 }
 
+@keyframes textFadIn{
+	0%{
+		transform: scale(0.25);
+	}
+	25%{
+		transform: scale(0.50);
+	}
+	50%{
+		transform: scale(0.75);
+	}
+	100%{
+		transform: scale(1);
+	}
+}
 .section .box-wrapper{
 	width: 650px;
 	height:  650px;
@@ -47,7 +75,10 @@ body{
 	position: relative;
 	width: 100%;
 	height:  100%;
-	background:  linear-gradient(135deg, #fff, #e4e3e8);
+	border:  6px solid #ff2a2a;
+	background:  linear-gradient(135deg, #000, #727272);
+	background:  transparent;
+	box-shadow: 2px 13px 20px 0px #871616;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -78,7 +109,7 @@ body{
 }
 
 .section .box-wrapper .box .gift-box .frame-box{
-	width:90%;
+	width:100%;
 	height:300px;
 	margin: 0 auto;
 	visibility: hidden;
@@ -136,9 +167,11 @@ body{
 }
 .section .box-wrapper .box .gift-box .frame-box .bookWrapper .bookFront .pageBg .pageWrapper .pageFace.back{
 	background:  linear-gradient(to right,  #ffffff 0%,#ffffff 92%,#f9f9f9 97%,#d9d9d9 100%);
+	pointer-events: none;
 }
 .section .box-wrapper .box .gift-box .frame-box .bookWrapper .bookFront .pageBg .pageWrapper .pageFace.front{
 	background:  linear-gradient(to right,  #d9d9d9 0%,#f9f9f9 3%,#ffffff 8%,#ffffff 100%);
+	max-height: 300px;
 }
 
 .section .box-wrapper .box .gift-box .frame-box .bookWrapper .bookFront .pageBg .pageWrapper .pageFace{
@@ -146,6 +179,10 @@ body{
 	width: 100%;
 	overflow: hidden;
 	text-align: center;
+}
+.section .box-wrapper .box .gift-box .frame-box .bookWrapper .bookFront .pageBg .pageWrapper .pageFace img{
+	width: 100%;
+	min-height: 300px;
 }
 /* -------end gift box css---------- */
 
@@ -156,7 +193,8 @@ body{
 	bottom: 5px;
 	left: 5px;
 	right: 5px;
-	background:  linear-gradient(315deg, #fff, #e4e3e8);
+	background:  linear-gradient(315deg, #140101, #000000);
+	background:  transparent;
 	border-radius:  50%;
 }
 

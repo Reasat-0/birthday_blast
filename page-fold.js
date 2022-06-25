@@ -3,27 +3,28 @@ var pageLocation=[],
     $Zz=0;
 
 TweenLite.set(".centerClass", {xPercent:-50, yPercent:-50});
-TweenLite.set(".pageWrapper", {left: "293px", perspective:1000});
+TweenLite.set(".pageWrapper", {left: "320px", perspective:1000});
 TweenLite.set(".page", {transformStyle:"preserve-3d"});
 TweenLite.set(".back", {rotationY:-180});
 TweenLite.set([".back", ".front"],{backfaceVisibility:"hidden"});
 
 // All pages must have an id assigned to them in the HTML
 $(".page").click(
-function() {
-	if (pageLocation[this.id] === undefined || pageLocation[this.id] =="right") {
-		$Zz = ($(".left").length)+1 ;
-		TweenMax.to($(this), 1, {force3D:true,rotationY:-180,transformOrigin:"-1px top",className:'+=left',z:$Zz,zIndex:$Zz}); 
-		TweenLite.set($(this), {className:'-=right'}); 
-		pageLocation[this.id]= "left";
+	function() {
+		console.log(pageLocation)
+		if (pageLocation[this.id] === undefined || pageLocation[this.id] =="right") {
+			$Zz = ($(".left").length)+1 ;
+			TweenMax.to($(this), 1, {force3D:true,rotationY:-180,transformOrigin:"-1px top",className:'+=left',z:$Zz,zIndex:$Zz}); 
+			TweenLite.set($(this), {className:'-=right'}); 
+			pageLocation[this.id]= "left";
+		}
+		else {
+			$Zz = ($(".right").length)+1 ;
+			TweenMax.to($(this), 1, {force3D:true,rotationY:0,transformOrigin:"left top",className:'+=right',z:$Zz,zIndex:$Zz});
+			TweenLite.set($(this), {className:'-=left'}); 
+			pageLocation[this.id]= "right";
+		}
 	}
-	else {
-		$Zz = ($(".right").length)+1 ;
-		TweenMax.to($(this), 1, {force3D:true,rotationY:0,transformOrigin:"left top",className:'+=right',z:$Zz,zIndex:$Zz});
-		TweenLite.set($(this), {className:'-=left'}); 
-		pageLocation[this.id]= "right";
-	}
-}
 );
 
 $(".front").hover(
@@ -44,3 +45,10 @@ $(".back").hover(
     }
 );
 
+
+
+
+// setInterval( () => {
+// 	change_texts(texts,i)
+// 	i++;
+// },4000)

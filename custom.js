@@ -62,3 +62,75 @@ box_img.addEventListener('click',function(e){
 
 	console.log(e)
 })
+
+
+// Text Animation
+
+let texts_greeting = [
+	'You Know!!!',
+	'It\'s a special day for me...',
+	'It\'s because on this day...',
+	'I got my Bestest GIFT of my life...',
+	'So, Here is a little gift...',
+	'Only For You...',
+	'To get just Tab The BOX below...'
+]
+
+const text_changing_h3 = document.querySelector('.text-changing-h3')
+
+// const change_texts = (texts,i=0) => {
+// 	if(i < texts.length){
+// 		text_changing_h3.innerHTML = texts[i];
+// 	}
+// }
+
+let j = 0;
+
+
+
+setInterval( () => {
+	let new_text = '', i = 0;
+	if(j < texts_greeting.length){
+		type_the_text(texts_greeting[j],i, new_text)
+		j++
+	}
+	
+}, 6000 )
+
+
+const type_the_text = (text,i, new_text) => {
+	if( i < text.length ){
+		setInterval(() => {
+			new_text += text[i]
+			if(text[i] != undefined){
+				text_changing_h3.innerHTML = new_text;
+			}
+			i++;
+		},200)
+	}
+}
+
+
+// Play The music....
+
+// window.onload = function(){
+// 	document.getElementById('play_bg_music').mute = true;
+// 	document.getElementById('play_bg_music').autoplay = true;
+
+	
+// }
+
+// const audio = document.createElement("audio");
+//   audio.muted = true;
+
+//   function play(src) {
+//     audio.pause();
+//     audio.muted = false;
+//     const source = document.createElement("source");
+//     source.src = src;
+//     audio.appendChild(source);
+//     audio.currentTime = 0;
+//     audio.play();
+//   }
+
+// window.onmouseover = function(){play('music/river_flow.mp3')};
