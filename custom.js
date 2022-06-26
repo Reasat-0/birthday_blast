@@ -1,4 +1,8 @@
-
+const box_img = document.querySelector('.gift-box-img')
+const box_img_gif = document.querySelector('.gift-box-img-gif');
+const frame_box = document.querySelector('.frame-box');
+const box_wrapper = document.querySelector('.box-wrapper');
+const text_changing_h3 = document.querySelector('.text-changing-h3')
 
 const bubble = () => {
 	let count = 300;
@@ -7,7 +11,6 @@ const bubble = () => {
 	const section = document.querySelector('.section');
 	let i = 0;
 
-	console.log(container.clientWidth)
 	while(i<count){
 		let bubble = document.createElement('i');
 
@@ -40,12 +43,6 @@ const bubble = () => {
 	// },5000)
 }
 
-
-
-const box_img = document.querySelector('.gift-box-img')
-const box_img_gif = document.querySelector('.gift-box-img-gif');
-const frame_box = document.querySelector('.frame-box');
-
 document.addEventListener("load", bubble())
 
 
@@ -60,7 +57,15 @@ box_img.addEventListener('click',function(e){
 		frame_box.classList.add('animate','infinite',frame_box.dataset.ani)
 	},6000)
 
-	console.log(e)
+	document.getElementById('player').play();
+
+	$(text_changing_h3).fadeOut(2000, () => {
+		text_changing_h3.innerHTML = 'Tap on the pages to turn the pages over :)';
+		$(text_changing_h3).fadeIn(2000);
+	})
+	// setInterval(()=>{
+	// 	text_changing_h3.innerHTML = 'Tap on the pages to turn the pages over :)'
+	// },1000)
 })
 
 
@@ -73,10 +78,10 @@ let texts_greeting = [
 	'I got my Bestest GIFT of my life...',
 	'So, Here is a little gift...',
 	'Only For You...',
-	'To get just Tab The BOX below...'
+	'Just tap The BOX below...'
 ]
 
-const text_changing_h3 = document.querySelector('.text-changing-h3')
+
 
 // const change_texts = (texts,i=0) => {
 // 	if(i < texts.length){
@@ -88,14 +93,26 @@ let j = 0;
 
 
 
-setInterval( () => {
+
+
+document.querySelector('.hands').onclick = function(){
+
+	$(this).fadeOut();
+	$(this).siblings('span').fadeOut();
+
+	document.getElementById('player').play();
+	setInterval( () => {
 	let new_text = '', i = 0;
 	if(j < texts_greeting.length){
 		type_the_text(texts_greeting[j],i, new_text)
 		j++
 	}
-	
-}, 6000 )
+	if(j === texts_greeting.length -1 ){
+		box_wrapper.style.pointerEvents =  'all';
+	}
+
+	}, 6000 )
+}
 
 
 const type_the_text = (text,i, new_text) => {
@@ -111,26 +128,3 @@ const type_the_text = (text,i, new_text) => {
 }
 
 
-// Play The music....
-
-// window.onload = function(){
-// 	document.getElementById('play_bg_music').mute = true;
-// 	document.getElementById('play_bg_music').autoplay = true;
-
-	
-// }
-
-// const audio = document.createElement("audio");
-//   audio.muted = true;
-
-//   function play(src) {
-//     audio.pause();
-//     audio.muted = false;
-//     const source = document.createElement("source");
-//     source.src = src;
-//     audio.appendChild(source);
-//     audio.currentTime = 0;
-//     audio.play();
-//   }
-
-// window.onmouseover = function(){play('music/river_flow.mp3')};
