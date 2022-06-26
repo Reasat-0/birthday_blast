@@ -57,7 +57,7 @@ box_img.addEventListener('click',function(e){
 		frame_box.classList.add('animate','infinite',frame_box.dataset.ani)
 	},6000)
 
-	document.getElementById('player').play();
+	document.getElementById('player').src= "music/thousand.mp3";
 
 	$(text_changing_h3).fadeOut(2000, () => {
 		text_changing_h3.innerHTML = 'Tap on the pages to turn the pages over :)';
@@ -76,7 +76,7 @@ let texts_greeting = [
 	'It\'s a special day for me...',
 	'It\'s because on this day...',
 	'I got my Bestest GIFT of my life...',
-	'So, Here is a little gift...',
+	'So, Here is a little surprise...',
 	'Only For You...',
 	'Just tap The BOX below...'
 ]

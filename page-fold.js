@@ -1,9 +1,10 @@
 var pageLocation=[],
     lastPage=null;
-    $Zz=0;
+    $Zz=0,
+    gift_box = document.querySelector('.gift-box')
 
 TweenLite.set(".centerClass", {xPercent:-50, yPercent:-50});
-TweenLite.set(".pageWrapper", {left: "325px", perspective:1000});
+TweenLite.set(".pageWrapper", {left: "377px", perspective:1000});
 TweenLite.set(".page", {transformStyle:"preserve-3d"});
 TweenLite.set(".back", {rotationY:-180});
 TweenLite.set([".back", ".front"],{backfaceVisibility:"hidden"});
@@ -11,18 +12,35 @@ TweenLite.set([".back", ".front"],{backfaceVisibility:"hidden"});
 // All pages must have an id assigned to them in the HTML
 $(".page").click(
 	function() {
+		console.log(this.id)
 		if (pageLocation[this.id] === undefined || pageLocation[this.id] =="right") {
 			$Zz = ($(".left").length)+1 ;
 			TweenMax.to($(this), 1, {force3D:true,rotationY:-180,transformOrigin:"-1px top",className:'+=left',z:$Zz,zIndex:$Zz}); 
 			TweenLite.set($(this), {className:'-=right'}); 
 			pageLocation[this.id]= "left";
 		}
+		
 		else {
 			$Zz = ($(".right").length)+1 ;
 			TweenMax.to($(this), 1, {force3D:true,rotationY:0,transformOrigin:"left top",className:'+=right',z:$Zz,zIndex:$Zz});
 			TweenLite.set($(this), {className:'-=left'}); 
 			pageLocation[this.id]= "right";
 		}
+
+
+		if(this.id === 'page12'){
+			document.getElementById('player').src = "music/hbd.mp3"
+		}
+		if(this.id === 'page16'){
+			$(gift_box).fadeOut();
+			$('.final_text').fadeIn()
+		}
+		// if(this.id === 'page9'){
+		// 	console.log('---page 9999')
+		// }
+		// if(this.id === 'page10'){
+		// 	console.log('---page 10000')
+		// }
 	}
 
 	
