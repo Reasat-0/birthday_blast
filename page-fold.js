@@ -28,12 +28,12 @@ $(".page").click(
 		}
 
 
-		if(this.id === 'page12'){
+		if(this.id === 'page24'){
 			document.getElementById('player').src = "music/hbd.mp3"
 		}
-		if(this.id === 'page16'){
-			$(gift_box).fadeOut();
-			$('.final_text').fadeIn()
+		if(this.id === 'page28'){
+			$(gift_box).fadeOut(1000);
+			$('.final_text').fadeIn(2000)
 		}
 		// if(this.id === 'page9'){
 		// 	console.log('---page 9999')
